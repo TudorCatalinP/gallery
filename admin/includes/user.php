@@ -100,6 +100,37 @@ class User{
 	}
 
 
-}
+	public function create(){
+		global $database;
+
+
+		$sql  = "INSERT INTO users(username, password, first_name, last_name) ";
+		$sql .= "VALUES ('";
+		$sql .= $database->escaped_string($this->username). "', '";
+		$sql .= $database->escaped_string($this->password). "', '";
+		$sql .= $database->escaped_string($this->first_name). "', '";
+		$sql .= $database->escaped_string($this->last_name). "')";
+
+
+		if($database->query($sql)){
+			$this->id = $database->the_insert_id();
+			return true;
+		}else{
+			return false;
+		}
+
+
+
+	}
+
+
+
+
+
+}//End of User Class
+
+
+
+
 
  ?>
