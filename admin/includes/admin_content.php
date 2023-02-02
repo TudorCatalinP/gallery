@@ -13,23 +13,34 @@
                             // $found_user_by_id = User::find_user_by_id(5);
                             // echo "Username by id : ".$found_user_by_id->username;                      
                             
-
-                            //Create -  CRUD
                             $user = new User();
-                            $user->username = "Suave the second";
-                            $user->password = "Rico Last Name";
-                            $user->first_name = "Rica";
-                            $user->last_name = "Suaves";
-
-                            $user->create();
+                            //Create -  CRUD
                             
+                            // $user->username = "Suave the second";
+                            // $user->password = "Rico Last Name";
+                            // $user->first_name = "Rica";
+                            // $user->last_name = "Suaves";
+                            // $user->create();
+                            
+                            //Update - CRUD
+                            // $user = User::find_user_by_id(6);
+                            // $user->first_name = "Williams";
+                            // $user->last_name = "Shackner";
+                            // $user->username= "Sheldon";
+                            // $user->update();
+
+                            //Delete - CRUD
+                            //$user->id = "10";
+                            $user = User::find_user_by_id(4);
+                            $user->delete();
+
                             //Read - CRUD
                             $users = User::find_all_users();
-                            // var_dump($users); //$users is an array full of objects
-                            // $users beeing an array (full of objects) we go through using foreach
                             foreach ($users as $user) {
                               echo $user->username . "<br>";
                             }
+
+
                         ?>
 
                         <ol class="breadcrumb">
