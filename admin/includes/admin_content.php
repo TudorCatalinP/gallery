@@ -14,22 +14,22 @@
                             // echo "Username by id : ".$found_user_by_id->username;     
                             // $found_user_by_id->properties();  
                             
-                            $user = new User();
+                            // $user = new User();
                             //Create -  CRUD
                             
-                            $user->username = "Totalital";
-                            $user->password = "Secret_password";
-                            $user->first_name = "TOLITA";
-                            $user->last_name = "APELLIDO";
-                            $user->create();
+                            // $user->username = "Totalital";
+                            // $user->password = "Secret_password";
+                            // $user->first_name = "TOLITA";
+                            // $user->last_name = "APELLIDO";
+                            // $user->create();
                             
                             //Update - CRUD
-                            // $user = User::find_user_by_id(21);
-                            // $user->first_name = "first_name_4000";
-                            // $user->last_name = "last_name_4000";
-                            // $user->username= "username_4000";
-                            // $user->password= "password_4000";
-                            // $user->update();
+                            $user = User::find_user_by_id(23);
+                            $user->first_name = "first_name_5000";
+                            $user->last_name = "last_name_5000";
+                            $user->username= "username_5000";
+                            $user->password= "password_5000";
+                            $user->update();
 
                             //Delete - CRUD
                             // $user->id = "16";

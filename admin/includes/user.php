@@ -117,7 +117,7 @@ class User{
 		$properties = array();
 
 		foreach (self::$db_table_fields as $db_field) {
-			echo " is ".$db_field." ... ".$this->$db_field ."<br>";
+			//echo " is ".$db_field." ... ".$this->$db_field ."<br>";
 			# code...
 			if (property_exists($this, $db_field)) {
 
@@ -125,7 +125,22 @@ class User{
 			}
 		}
 		return $properties;
+		//$properties => associative array
+		// echo "<pre>";
+		// print_r($properties);
 	}
+
+	protected function clean_properties(){
+		global $database;
+
+
+		$clean_properties= array();
+		foreach( $this->properties() as $key => $values ){
+			$clean_properties[$key] = $database->escaped_string($values);
+		}
+		return $clean_properties;
+	}
+
 
 	public function save(){
 
@@ -136,7 +151,7 @@ class User{
 	public function create(){
 		global $database;
 
-		$properties = $this->properties();
+		$properties = $this->clean_properties();
 
 
 		$sql  = "INSERT INTO ". self::$db_table . "(" . implode(",", array_keys($properties)) . ")";
@@ -153,12 +168,23 @@ class User{
 
 	public function update(){
 		global $database;
+
+		$properties = $this->clean_properties();
+		$property_pairs = array();
+
+		foreach ($properties as $key => $value) {
+			# code...
+			$property_pairs[]="{$key}='{$value}'";
+
+		}
+
 		
 		$sql = "UPDATE ". self::$db_table ." SET ";	
-		$sql .= "username ='". $database->escaped_string($this->username) ."', ";
-		$sql .= "password ='". $database->escaped_string($this->password) ."', ";
-		$sql .= "first_name ='". $database->escaped_string($this->first_name) ."', ";
-		$sql .= "last_name ='". $database->escaped_string($this->last_name) ."' ";
+		// $sql .= "username ='". $database->escaped_string($this->username) ."', ";
+		// $sql .= "password ='". $database->escaped_string($this->password) ."', ";
+		// $sql .= "first_name ='". $database->escaped_string($this->first_name) ."', ";
+		// $sql .= "last_name ='". $database->escaped_string($this->last_name) ."' ";
+		$sql .= implode(", ", $property_pairs);
 		$sql .= " WHERE id=". $database->escaped_string($this->id);
 
 		$database->query($sql);

@@ -41,19 +41,39 @@ $query = $connection->query("SELECT * FROM users");
 // }
 
 
-$assoc_array = array("id"=>"1", "username" =>"tudorC", "password"=>"123", "firstname"=>"tudor", "lastname"=>"catalin");
-echo "<pre>";
-print_r($assoc_array);
+// $assoc_array = array("id"=>"1", "username" =>"tudorC", "password"=>"123", "firstname"=>"tudor", "lastname"=>"catalin");
+// echo "<pre>";
+// print_r($assoc_array);
 
-echo implode (',', array_keys($assoc_array));
-echo implode (',', array_values($assoc_array));
+// echo implode (',', array_keys($assoc_array));
+// echo implode (',', array_values($assoc_array));
 
-echo "<br>";
+// echo "<br>";
 
-foreach ($assoc_array as $key => $value) {
-	echo " key is ".$key." ";
-	echo " value is ".$value."<br>";
+// foreach ($assoc_array as $key => $value) {
+// 	echo " key is ".$key." ";
+// 	echo " value is ".$value."<br>";
+// 	# code...
+// }
+
+$properties = Array
+(
+    'username' => 'Totalital',
+    'password' => 'Secret_password',
+    'first_name' => 'TOLITA',
+    'last_name' => 'APELLIDO'
+);
+
+$property_pairs = array();
+
+foreach ($properties as $key => $value) {
 	# code...
+	$property_pairs[]="{$key}='{$value}'";
 }
+
+echo "<pre>";
+print_r($property_pairs);
+
+echo $sql = implode(", ", $property_pairs);//username='Totalital', password='Secret_password', first_name='TOLITA', last_name='APELLIDO'
 
  ?>
