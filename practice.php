@@ -14,7 +14,7 @@ if (!$connection){
 	
 }
 
-$query = $connection->query("SELECT * FROM userstest");
+$query = $connection->query("SELECT * FROM users");
 // echo " the connection->query result is a  ";
 // var_dump($query);
 // echo "accesing the object with the property of ". $query->field_count." fields";
@@ -41,6 +41,19 @@ $query = $connection->query("SELECT * FROM userstest");
 // }
 
 
+$assoc_array = array("id"=>"1", "username" =>"tudorC", "password"=>"123", "firstname"=>"tudor", "lastname"=>"catalin");
+echo "<pre>";
+print_r($assoc_array);
 
+echo implode (',', array_keys($assoc_array));
+echo implode (',', array_values($assoc_array));
+
+echo "<br>";
+
+foreach ($assoc_array as $key => $value) {
+	echo " key is ".$key." ";
+	echo " value is ".$value."<br>";
+	# code...
+}
 
  ?>

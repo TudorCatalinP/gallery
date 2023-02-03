@@ -10,35 +10,46 @@
 
                         <?php 
 
-                            // $found_user_by_id = User::find_user_by_id(5);
-                            // echo "Username by id : ".$found_user_by_id->username;                      
+                            // $found_user_by_id = User::find_user_by_id(3);
+                            // echo "Username by id : ".$found_user_by_id->username;     
+                            // $found_user_by_id->properties();  
                             
                             $user = new User();
                             //Create -  CRUD
                             
-                            // $user->username = "Suave the second";
-                            // $user->password = "Rico Last Name";
-                            // $user->first_name = "Rica";
-                            // $user->last_name = "Suaves";
-                            // $user->create();
+                            $user->username = "Totalital";
+                            $user->password = "Secret_password";
+                            $user->first_name = "TOLITA";
+                            $user->last_name = "APELLIDO";
+                            $user->create();
                             
                             //Update - CRUD
-                            // $user = User::find_user_by_id(6);
-                            // $user->first_name = "Williams";
-                            // $user->last_name = "Shackner";
-                            // $user->username= "Sheldon";
+                            // $user = User::find_user_by_id(21);
+                            // $user->first_name = "first_name_4000";
+                            // $user->last_name = "last_name_4000";
+                            // $user->username= "username_4000";
+                            // $user->password= "password_4000";
                             // $user->update();
 
                             //Delete - CRUD
-                            //$user->id = "10";
-                            $user = User::find_user_by_id(4);
-                            $user->delete();
+                            // $user->id = "16";
+                            // $user = User::find_user_by_id(17);
+                            // $user->delete();
+
+                            //$user = User::find_user_by_id(6);
+                            // $user->username = "Whatever_4000";
+                            // $user->save();
+
+
+
+
 
                             //Read - CRUD
-                            $users = User::find_all_users();
-                            foreach ($users as $user) {
-                              echo $user->username . "<br>";
-                            }
+                            // $users = User::find_all_users();
+                            // foreach ($users as $user) {
+                            //   echo $user->username . "<br>";
+                            // }
+
 
 
                         ?>
